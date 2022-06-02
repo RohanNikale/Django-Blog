@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<h1 class="text-center">Post</h1>
+
+<div class="graybg authorpage">
+{% for i in data %}
+<!-- Begin Author Posts
+	================================================== -->
+		<div class="container">
+			<div class="listrecent listrelated">
+				
+				<!-- begin post -->
+				<div class="authorpostbox">
+					<div class="card">
+						<a href="blogpost/{{i.title}}">
+							<img class="img-fluid img-thumb" src="media/{{i.image}}" alt="">
+						</a>
+						<div class="card-block">
+							<h2 class="card-title"><a href="blogpost/{{i.title}}">{{i.title}}</a></h2>
+							<h4 class="card-text">{{i.description|slice:300|safe}}</h4>
+							<div class="metafooter">
+								<div class="wrapfooter">
+									<span class="meta-footer-thumb">
+										<a href="blogpost/{{i.title}}"><img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Sal"></a>
+									</span>
+									<span class="author-meta">
+										<span class="post-name"><a href="blogpost/{{i.title}}">{{i.name}}</a></span><br/>
+										<span class="post-date">{{i.datetime}}</span><span class="dot"></span><span class="post-read"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end post -->
+				
+				
+				
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+<!-- End Author Posts
+================================================== -->
+
+<!-- Begin Twitter Timeline
+================================================== -->
+<div class="container margtop3rem">
+<a class="twitter-grid" href="https://twitter.com/rbsy">RBSY Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<!-- End Twitter Timeline
+================================================== -->
+
+{% endblock body %}
